@@ -58,7 +58,7 @@ function triggerAllSubscribers(key: string, payload: NavigationEventPayload) {
     () => getReduxSubscribers(key).forEach(subscriber => subscriber(payload));
   if (
     !payload.action.hasOwnProperty('type') ||
-    !payload.action.type.startsWith("Navigation") ||
+    !payload.action.type.toString().startsWith("Navigation") ||
     payload.state === payload.lastState
   ) {
     trigger();
